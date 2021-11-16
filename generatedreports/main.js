@@ -224,13 +224,11 @@ var assemblies = [
   {
     "name": "CustomClassLibrary",
     "classes": [
-      { "name": "CustomClassLibrary.Address", "rp": "CustomClassLibrary_Address.html", "cl": 17, "ucl": 0, "cal": 17, "tl": 44, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
-      { "name": "CustomClassLibrary.AddressValidator", "rp": "CustomClassLibrary_AddressValidator.html", "cl": 11, "ucl": 0, "cal": 11, "tl": 27, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
-      { "name": "CustomClassLibrary.Customer", "rp": "CustomClassLibrary_Customer.html", "cl": 13, "ucl": 0, "cal": 13, "tl": 33, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
-      { "name": "CustomClassLibrary.CustomerValidator", "rp": "CustomClassLibrary_CustomerValidator.html", "cl": 11, "ucl": 0, "cal": 11, "tl": 73, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
-      { "name": "CustomClassLibrary.MaxChars", "rp": "CustomClassLibrary_MaxChars.html", "cl": 20, "ucl": 0, "cal": 20, "tl": 73, "ct": "LineCoverage", "mc": "-", "cb": 4, "tb": 4, "lch": [], "bch": [], "hc": [] },
-      { "name": "CustomClassLibrary.Person", "rp": "CustomClassLibrary_Person.html", "cl": 7, "ucl": 0, "cal": 7, "tl": 21, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
-      { "name": "CustomClassLibrary.RequiredString", "rp": "CustomClassLibrary_RequiredString.html", "cl": 12, "ucl": 0, "cal": 12, "tl": 73, "ct": "LineCoverage", "mc": "-", "cb": 4, "tb": 4, "lch": [], "bch": [], "hc": [] },
+      { "name": "CustomClassLibrary.Address", "rp": "CustomClassLibrary_Address.html", "cl": 17, "ucl": 0, "cal": 17, "tl": 39, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
+      { "name": "CustomClassLibrary.AddressValidator", "rp": "CustomClassLibrary_AddressValidator.html", "cl": 27, "ucl": 1, "cal": 28, "tl": 47, "ct": "LineCoverage", "mc": "-", "cb": 6, "tb": 8, "lch": [], "bch": [], "hc": [] },
+      { "name": "CustomClassLibrary.Customer", "rp": "CustomClassLibrary_Customer.html", "cl": 13, "ucl": 0, "cal": 13, "tl": 34, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
+      { "name": "CustomClassLibrary.CustomerValidator", "rp": "CustomClassLibrary_CustomerValidator.html", "cl": 22, "ucl": 0, "cal": 22, "tl": 45, "ct": "LineCoverage", "mc": "-", "cb": 4, "tb": 4, "lch": [], "bch": [], "hc": [] },
+      { "name": "CustomClassLibrary.Person", "rp": "CustomClassLibrary_Person.html", "cl": 7, "ucl": 0, "cal": 7, "tl": 20, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
     ]},
 ];
 

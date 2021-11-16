@@ -18,10 +18,18 @@ namespace CustomClassLibrary.Tests
                 null,
                 null,
                 null,
-                null
+                "Canada"
                 );
-            var errors = AddressValidator.Validate(addres);
-            Assert.True(errors.Count == 5);
+            AddressValidator validator = new();
+            var errors = validator.ValidatorRun(addres);
+            List<string> expected = new List<string>
+            {
+                "Поле не должно быть пустым!",
+                "Поле не должно быть пустым!",
+                "Поле не должно быть пустым!",
+                "Поле не должно быть пустым!",
+            };
+            Assert.Equal(expected, errors);
         }
         [Fact]
         public void MaxCharsTest()
@@ -35,8 +43,16 @@ namespace CustomClassLibrary.Tests
                 "Too much chars Too much chars ",
                 "Canada"
                 );
-            var errors = AddressValidator.Validate(address);
-            Assert.True(errors.Count == 5);
+            AddressValidator validator = new();
+            var errors = validator.ValidatorRun(address);
+            List<string> expected = new List<string>
+            {
+                "Поле превышает возможную длину",
+                "Поле превышает возможную длину",
+                "Поле превышает возможную длину",
+                "Поле превышает возможную длину",
+            };
+            Assert.Equal(expected, errors);
         }
 
 

@@ -9,16 +9,16 @@ namespace CustomClassLibrary
 {
     public class Customer: Person
     {
-        [Phone]
+       
         public string Phone { get; set; }
 
-        [EmailAddress]
+        
         public string Email { get; set; }
-        [NotEmptyList]
+        
         public List<Address> Addresses { get;private set; }
 
         public decimal  TotalPurchaseAmount { get;private set; }
-        [NotEmptyList]
+        
         public List<string> Notes { get; private set; }
        
         

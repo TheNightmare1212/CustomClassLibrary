@@ -1,97 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using FluentValidation;
+using FluentValidation.Results;
 
 namespace CustomClassLibrary
 {
-    public static class CustomerValidator
+    public class CustomerValidator: AbstractValidator<Customer>
     {
-        public static List<string> Validate(Customer customer)
+        public CustomerValidator()
         {
-            var errorsList = new List<ValidationResult>();
-            Validator.TryValidateObject(
-                customer,
-                new ValidationContext(customer),
-                errorsList,
-                true);
-
-            var result = from error in errorsList
-                         select error.ErrorMessage;
-
-            return result.ToList();
+            RuleFor(x => x.LastName).NotEmpty().WithMessage("Поле не должно быть пустым!").MaximumLength(50).WithMessage("Поле превышает возможную длину");
+            RuleFor(x => x.FirstName).MaximumLength(50).WithMessage("Поле превышает возможную длину");
+            RuleFor(x => x.Addresses).NotNull().WithMessage("Список не должен быть пустым!");
+            RuleFor(x => x.Notes).NotNull().WithMessage("Список не должен быть пустым!");
+            RuleFor(x => x.Email).EmailAddress().WithMessage("Введите корректный адрес электронной почты");
+            RuleFor(x => x.Phone).Matches(@"^\+?[1-9]\d{1,14}$").WithMessage("Введите корректный номер телефона");
         }
-    }
-    class RequiredString : ValidationAttribute
-    {
-        private string name = "";
-        public override string FormatErrorMessage(string name)
+        public List<string> ValidatorRun(Customer customer)
         {
-            this.name = name;
-            return ErrorMessage;
-        }
-        public new string? ErrorMessage => $"Поле {name} обязательно";
-        public override bool IsValid(object value)
-        {
-            if (value == null || (value as string) == String.Empty)
+            CustomerValidator validator = new();
+            List<string> errors = new List<string>();
+            ValidationResult result= validator.Validate(customer);
+            if(!result.IsValid)
             {
-                return false;
+                foreach (var failure in result.Errors)
+                {
+                    errors.Add(failure.ErrorMessage);
+                }
             }
-            return true;
-        }
-       
-    }
-    class MaxChars : ValidationAttribute
-    {
-        private int maxLength = 0;
-        public MaxChars(int maxLength)
-        {
-            this.maxLength = maxLength;
-        }
-        private string name = "";
-        public override string FormatErrorMessage(string name)
-        {
-            this.name = name;
-            return ErrorMessage;
-        }
-        public new string? ErrorMessage => $"Поле {name} превышает возможную длину ";
-        public override bool IsValid(object value)
-        {
-            if (value == null)
-            {
-                return true;
-            }
-            if (value.ToString().Length > maxLength)
-            {
-                return false;
-            }
-            return true;
-        }
-    }
-    class NotEmptyList:ValidationAttribute
-    {
-        private string name = "";
-        public override string FormatErrorMessage(string name)
-        {
-            this.name = name;
-            return ErrorMessage;
-        }
-        public new string? ErrorMessage => $"Список {name} не должен быть пустым ";
-        public override bool IsValid(object value)
-        {
-            
-            if (value!=null)
-            {
-                return true;
-            }
-            if (value==null)
-            {
-                return false;
-            }
-            return true;
+            return errors;
         }
 
     }
+   
+
+    
+  
+
 }
+
