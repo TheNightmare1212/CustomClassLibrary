@@ -25,7 +25,10 @@ jobs:
       run: dotnet test --collect:"XPlat Code Coverage" 
     - uses: codecov/codecov-action@v1
       with:
+        token: CODECOV_TOKEN='4b9e2b9c-5792-4d63-94cc-b6d5faa3e1e6'
         files: ./CustomClassLibraryTests1/TestResults/*/coverage.cobertura.xml
         flags: unittests
         name: codecov-umbrella
+        fail_ci-if_error: true
+        verbose: true
   
