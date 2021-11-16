@@ -25,9 +25,7 @@ jobs:
       run: dotnet test --collect:"XPlat Code Coverage" 
     - uses: codecov/codecov-action@v1
       with:
-        files: ./tests/CustomClassLibraryTests1/TestResults/*/coverage.cobertura.xml
+        files: ./CustomClassLibraryTests1/TestResults/*/coverage.cobertura.xml
         flags: unittests
         name: codecov-umbrella
-        fail_ci_if_error: true
-        verbose: true
-
+  
